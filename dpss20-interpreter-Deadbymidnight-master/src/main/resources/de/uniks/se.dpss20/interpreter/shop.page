@@ -1,0 +1,15 @@
+
+page shop
+form orderForm shop /shop
+
+line pumpsLine orderForm
+label pumpsLabel pumpsLine How many pumps do you want:
+input pumpsInput pumpsLine 42?
+
+line bootsLine orderForm
+label bootsLabel bootsLine How many boots do you want:
+input bootsInput bootsLine 42?
+
+line addressLine orderForm
+label addressLabel addressLine Where should we ship to:
+input addressInput addressLine WonderLand

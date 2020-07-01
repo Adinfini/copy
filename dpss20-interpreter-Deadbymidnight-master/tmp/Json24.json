@@ -1,0 +1,148 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "JsonShop24",
+    "description": "API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:45678",
+      "description": "This is localhost designated by spark to test"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "return hello",
+        "summary": "Just a greeting",
+        "operationId": "hello",
+        "responses": {
+          "200":{
+            "description": "hell response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "example": "world",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cmd": {
+      "get": {
+        "description": "commands  for /cmd",
+        "summary": "enter to generate page",
+        "operationId": "/cmd",
+        "parameters": [{
+          "description": "cmdIn",
+          "name": "cmdIn",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "command entered",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "example": "page p1 Label l1 l2",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/input": {
+      "get": {
+        "operationId": "input",
+        "summary": "returns the input file",
+        "description": "returns the input page",
+        "responses": {
+          "200": {
+            "description": "input page ",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "example": "gets html from input",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/output/:pageId": {
+      "get": {
+        "operationId": "output page",
+        "summary": "returns the output page",
+        "description": "output page",
+        "responses": {
+          "200": {
+            "description": "output page",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "example": "gets html from input",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop": {
+      "get": {
+        "operationId": "shop",
+        "summary": "place an order",
+        "description": "page to place an order",
+        "parameters": [
+          {
+            "description": "How man pumps do you want eg 42",
+            "in": "query",
+            "name": "pumpsInput",
+            "schema": {
+              "type": "string"}
+          },
+          {
+            "description": "How man boots do you want eg 42",
+            "in": "query",
+            "name": "bootsInput",
+            "schema": {
+              "type": "string"}
+          },
+          {
+            "description": "Where shall we ship",
+            "in": "query",
+            "name": "addressInput",
+            "schema": {
+              "type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "place an order",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "example": "42 boots shipped to Alice Wonderland 1",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

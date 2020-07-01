@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'org.hidetake.swagger.generator' version '2.18.2'
+}
+
+group = 'de.unikassel.se.dpss20'
+version = '0.1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/junit/junit
+	testCompile group: 'junit', name: 'junit', version: '4.13'
+	compile group: 'org.fulib', name: 'fulibTools', version: '1.1.0'
+	compile group: 'org.antlr', name: 'stringtemplate', version: '4.0'
+	compile "com.sparkjava:spark-core:2.8.0"
+	testCompile 'com.codeborne:selenide:5.12.2'
+	swaggerUI 'org.webjars:swagger-ui:3.10.0'
+	// https://mvnrepository.com/artifact/org.json/json
+	compile group: 'org.json', name: 'json', version: '20090211'
+}
+
+swaggerSources {
+	jsonShop24 {
+		inputFile = file('tmp/Json24.json')
+	}
+	YamlShop24 {
+		inputFile = file('tmp/Shop3.yaml')
+	}
+}

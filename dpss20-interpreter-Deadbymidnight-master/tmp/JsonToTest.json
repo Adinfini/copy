@@ -1,0 +1,76 @@
+{
+   "OpenAPI": "3.0.0",
+   "info": {
+      "title": "JsonShop24",
+      "version": "1.0.0"
+   },
+   "paths": {
+      "/": {"get": {
+         "operationId": "hello",
+         "responses": {"200": {"content": {"text/plain": {"schema": {
+            "example": "world",
+            "type": "string"
+         }}}}},
+         "summary": "Just a greeting"
+      }},
+      "/cmd": {"get": {
+         "operationId": "/cmd",
+         "parameters": [{
+            "description": "cmdIn",
+            "in": "query",
+            "name": "cmdIn",
+            "schema": {"type": "string"}
+         }],
+         "responses": {"200": {"content": {"text/plain": {"schema": {
+            "example": "page p1 Label l1 l2",
+            "type": "string"
+         }}}}},
+         "summary": "Enter to generate page"
+      }},
+      "/input": {"get": {
+         "operationId": "input",
+         "responses": {"200": {"content": {"text/plain": {"schema": {
+            "example": "gets html from input",
+            "type": "string"
+         }}}}},
+         "summary": "returns html"
+      }},
+      "/output/:PageId": {"get": {
+         "operationId": "page",
+         "responses": {"200": {"content": {"text/plain": {"schema": {
+            "example": "gets html from input",
+            "type": "string"
+         }}}}},
+         "summary": "returns page"
+      }},
+      "/shop": {"get": {
+         "operationId": "shop",
+         "parameters": [
+            {
+               "description": "How man pumps do you want eg 42",
+               "in": "query",
+               "name": "pumpsInput",
+               "schema": {"type": "string"}
+            },
+            {
+               "description": "How man boots do you want eg 42",
+               "in": "query",
+               "name": "bootsInput",
+               "schema": {"type": "string"}
+            },
+            {
+               "description": "Where shall we ship",
+               "in": "query",
+               "name": "addressInput",
+               "schema": {"type": "string"}
+            }
+         ],
+         "responses": {"200": {"content": {"text/plain": {"schema": {
+            "example": "42 boots shipped to Alice Wonderland 1",
+            "type": "string"
+         }}}}},
+         "summary": "place an order"
+      }}
+   },
+   "servers": [{"url": "http://localhost:45678"}]
+}

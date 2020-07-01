@@ -1,0 +1,15 @@
+/.idea/
+/.gradle/
+/.settings/
+
+/bin/
+/build/
+/data/
+/out/
+/temp/
+
+hs_err_pid*
+
+.metadata
+*.iml
+local.properties

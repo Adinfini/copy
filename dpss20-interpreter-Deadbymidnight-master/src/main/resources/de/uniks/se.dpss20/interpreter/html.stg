@@ -1,0 +1,42 @@
+page(root, content) ::= <<
+<html>
+<body id="{root}">
+    {content}
+</body>
+</html>
+>>
+
+
+
+line(id, content) ::= <<
+<p id="{id}">
+    {content}
+
+</p>
+
+>>
+
+label(id,text,prompt) ::= <<
+<label id="{id}">{text}</label>
+
+>>
+
+input(id, text, prompt) ::= <<
+
+<input type ="value" id="{id}" name="{id}" placeholder="{prompt}"  value="{text}"></input>
+>>
+
+button(id,text,prompt) ::= <<
+<button id="{id}" onclick="{prompt }">{text}</button>
+<script>
+</script>
+
+>>
+
+form(id, content, url) ::= <<
+<form action ="{url}" method="get">
+    {content}
+    <input id="submit" type="Submit" value="Submit"/>
+ </form>
+
+>>

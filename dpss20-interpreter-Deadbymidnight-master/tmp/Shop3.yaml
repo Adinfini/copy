@@ -1,0 +1,88 @@
+openapi: "3.0.0"
+info:
+  title: Shop24
+  version: 1.41.0
+
+servers:
+  - url: http://localhost:45678
+
+paths:
+  /:
+    get:
+      summary: Just a greeting
+      operationId: hello
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: world
+  /input:
+    get:
+      summary: returns  html
+      operationId: input
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                type: string
+                example: gets html format
+
+  /output/:pageId :
+      get:
+        summary: returns  page
+        operationId: Page
+        responses:
+          '200':
+            content:
+              text/html:
+                schema:
+                  type: pageId
+                  example: returns the page to be displayed
+  /cmd:
+    get:
+      summary:  enter line,page
+      operationId: input
+      parameters:
+        - in: query
+          name: cmdIn
+          schema:
+            type: string
+          description: cmd???
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                type: string
+                example: line l1 p1
+
+  /shop:
+    get:
+      summary: place an order
+      operationId: shop
+      parameters:
+        - in: query
+          name: pumpsInput
+          schema:
+            type: string
+          description: How many pumps do you want e.g 42
+        - in: query
+          name: bootsInput
+          schema:
+            type: string
+          description: How many boots do you want e.g 42
+        - in: query
+          name: addressInput
+          schema:
+            type: string
+          description: Where shall we ship
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                type: string
+                example: 42 boots shipped to Alice Wonderland 1
